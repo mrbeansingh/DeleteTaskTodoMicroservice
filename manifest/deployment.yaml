@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-delete-app-deployment
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      type: delete-pod
+  template:
+    metadata:
+      labels: 
+        type: delete-pod
+    spec:
+       containers:
+        - name: delete-con
+          image: aksacr.azurecr.io/add-delete-task-todo:v1
+          ports:
+           - containerPort: 8000
+          env:
+           - name: CONNECTION_STRING
+             value: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:dql-sever.database.windows.net,1433;Database=sql-dev-db;Authentication=ActiveDirectoryMsi;Encrypt=yes;TrustServerCertificate=no;"
+              
+
+
+
+
+          
+
+
