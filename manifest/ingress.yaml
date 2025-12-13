@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: delete-ingress-rule
 spec:
-  ingressClassName: nazure-application-gateway              # nginx
+  ingressClassName: azure-application-gateway              # nginx
   rules:
    - host: todo-delete.abhaysingh.shop
      http:
